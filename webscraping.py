@@ -2,13 +2,15 @@ from bs4 import BeautifulSoup as soup
 from urllib.request import urlopen as Ureq
 import re
 
-# page_url = "https://ussoccerplayers.com/fifa-world-rankings"
+#This code pulls data from IMDB website for movies in genre Comedy (top 10,000) and saves the data in a CSV file.
+
 filename = "Top 10000 Comedy Movies.csv"
 f = open(filename, "w")
 headers = "Movie, Release Year, Certificate, Runtime, Genre, Rating\n"
 f.write(headers)
 
 for i in range(1,10001,50):
+    # The For loop runs with page entry. Every page has count of 50 entries (movies or data), and changes with every page, thus the count number is used as a counter to extract data.
     page_url = "https://www.imdb.com/search/title/?genres=comedy&start=" + str(i) + "&explore=title_type,genres&ref_=adv_nxt"
     uclient = Ureq(page_url)
     page_soup = soup(uclient.read(), "html.parser")
