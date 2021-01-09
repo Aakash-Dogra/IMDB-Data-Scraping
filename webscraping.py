@@ -35,8 +35,6 @@ for i in range(1,10001,50):
         #         year_movie = year_movie[2]
         #     else:
         #         year_movie = year_movie[0]
-
-
         # year_movie
         # year_released = contain.findAll("span",{"class":"lister-item-year text-muted unbold"})
         # year_movie = year_released[0].text.strip().strip('()').strip('(')
